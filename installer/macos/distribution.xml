@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>PhaseForge</title>
+    <options customize="allow" require-scripts="false" hostArchitectures="arm64,x86_64"/>
+    <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true"/>
+
+    <choices-outline>
+        <line choice="vst3"/>
+        <line choice="au"/>
+        <line choice="app"/>
+    </choices-outline>
+
+    <choice id="vst3" title="VST3 plugin" description="For Ableton Live, FL Studio, Reaper and other VST3 hosts." start_selected="true">
+        <pkg-ref id="com.phaseforge.vst3"/>
+    </choice>
+    <choice id="au" title="Audio Unit plugin" description="For Logic Pro, GarageBand and other AU hosts." start_selected="true">
+        <pkg-ref id="com.phaseforge.component"/>
+    </choice>
+    <choice id="app" title="Standalone app" description="Run PhaseForge without a DAW." start_selected="true">
+        <pkg-ref id="com.phaseforge.standalone"/>
+    </choice>
+
+    <pkg-ref id="com.phaseforge.vst3"       version="__VERSION__" onConclusion="none">vst3.pkg</pkg-ref>
+    <pkg-ref id="com.phaseforge.component"  version="__VERSION__" onConclusion="none">au.pkg</pkg-ref>
+    <pkg-ref id="com.phaseforge.standalone" version="__VERSION__" onConclusion="none">app.pkg</pkg-ref>
+</installer-gui-script>
